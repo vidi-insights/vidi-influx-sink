@@ -13,9 +13,9 @@
     "lodash": "4.2.1"
   },
   "devDependencies": {
-    "seneca": "^1.1.0",
+    "seneca": "1.1.0",
     "seneca-stats": "mcdonnelldean/seneca-stats",
     "seneca-toolbag-stats": "mcdonnelldean/seneca-toolbag-stats",
-    "toolbag": "^0.7.0"
+    "toolbag": "0.7.0"
   }
 }

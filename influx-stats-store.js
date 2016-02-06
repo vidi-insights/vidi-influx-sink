@@ -6,9 +6,10 @@ var _ = require('lodash')
 var defaults = {
   plugin: 'influx-stats-store',
   enabled: true,
+  log_input: false,
   log_output: false,
   influx: {
-    host:'192.168.99.100',
+    host:'localhost',
     port:'8086',
     username:'stats',
     password:'stats',
@@ -27,6 +28,10 @@ module.exports = function (opts) {
     this.prior(msg, function (err, data) {
       if (!opts.enabled) {
         return done(null, data)
+      }
+
+      if (opts.log_input) {
+        console.log(JSON.stringify(data, null, 2))
       }
 
       var client = influx(opts.influx)
