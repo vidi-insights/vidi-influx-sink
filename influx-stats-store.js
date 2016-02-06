@@ -6,8 +6,9 @@ var _ = require('lodash')
 var defaults = {
   plugin: 'influx-stats-store',
   enabled: true,
+  log_output: false,
   influx: {
-    host:'localhost',
+    host:'192.168.99.100',
     port:'8086',
     username:'stats',
     password:'stats',
@@ -23,20 +24,25 @@ module.exports = function (opts) {
   seneca.add({role: 'stats', cmd: 'store'}, handleStorage)
 
   function handleStorage (msg, done) {
-    this.prior(msg, function (err, metrics) {
+    this.prior(msg, function (err, data) {
       if (!opts.enabled) {
-        return done(null, metrics)
+        return done(null, data)
       }
 
       var client = influx(opts.influx)
       var series = {}
 
-      _.each(metrics, (stat) => {
+      _.each(data.metrics, (stat) => {
+
         var id = stat.metric
 
         series[id] = series[id] || []
         series[id].push([stat.values, stat.tags])
       })
+
+      if (opts.log_output) {
+        console.log(JSON.stringify(series, null, 2))
+      }
 
       client.writeSeries(series, (err) => {
         if (err) {
@@ -44,7 +50,7 @@ module.exports = function (opts) {
           opts.enabled = false
         }
 
-        done(null, metrics)
+        done(null, data)
       })
     })
   }

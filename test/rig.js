@@ -1,7 +1,7 @@
 'strict'
 
 const config = {
-  stats: {collector: true, log_metrics: true}
+  stats: {collector: true, log_metrics: false}
 }
 
 require('seneca')()
