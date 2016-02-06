@@ -1,0 +1,21 @@
+{
+  "name": "seneca-influx-stats-store",
+  "version": "0.0.1",
+  "description": "Store you seneca-stats data in InfluxDb",
+  "main": "influx-stats-store.js",
+  "scripts": {
+    "rig": "node -r toolbag test/rig.js"
+  },
+  "author": "Dean McDonnell (http://mcdonnelldean.me)",
+  "license": "MIT",
+  "dependencies": {
+    "influx": "4.1.0",
+    "lodash": "4.2.1"
+  },
+  "devDependencies": {
+    "seneca": "^1.1.0",
+    "seneca-stats": "mcdonnelldean/seneca-stats",
+    "seneca-toolbag-stats": "mcdonnelldean/seneca-toolbag-stats",
+    "toolbag": "^0.7.0"
+  }
+}
