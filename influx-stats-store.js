@@ -22,9 +22,9 @@ module.exports = function (opts) {
   var extend = seneca.util.deepextend
 
   opts = extend(defaults, opts)
-  seneca.add({role: 'stats', cmd: 'store'}, handleStorage)
+  seneca.add({role: 'stats', cmd: 'store'}, handle_storage)
 
-  function handleStorage (msg, done) {
+  function handle_storage (msg, done) {
     this.prior(msg, function (err, data) {
       if (!opts.enabled) {
         return done(null, data)
@@ -37,9 +37,9 @@ module.exports = function (opts) {
       var client = influx(opts.influx)
       var series = {}
 
-      _.each(data.metrics, (stat) => {
+      _.each(data.stats, (stat) => {
 
-        var id = stat.metric
+        var id = stat.stat
 
         series[id] = series[id] || []
         series[id].push([stat.values, stat.tags])
