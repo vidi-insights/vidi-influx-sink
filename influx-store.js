@@ -4,7 +4,8 @@ var influx = require('influx')
 var _ = require('lodash')
 
 var defaults = {
-  plugin: 'influx-stats-store',
+  plugin: 'vidi-influx-store',
+  role: 'metrics',
   enabled: true,
   log_input: false,
   log_output: false,
@@ -22,7 +23,7 @@ module.exports = function (opts) {
   var extend = seneca.util.deepextend
 
   opts = extend(defaults, opts)
-  seneca.add({role: 'stats', cmd: 'store'}, handle_storage)
+  seneca.add({role: opts.role, cmd: 'store'}, handle_storage)
 
   function handle_storage (msg, done) {
     this.prior(msg, function (err, data) {

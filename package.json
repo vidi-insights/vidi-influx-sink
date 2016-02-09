@@ -1,10 +1,10 @@
 {
-  "name": "seneca-influx-stats-store",
+  "name": "vidi-influx-store",
   "version": "0.0.1",
   "description": "Store you seneca-stats data in InfluxDb",
-  "main": "influx-stats-store.js",
+  "main": "influx-store.js",
   "scripts": {
-    "rig": "node -r toolbag test/rig.js"
+    "demo": "node -r toolbag test/demo.js"
   },
   "author": "Dean McDonnell (http://mcdonnelldean.me)",
   "license": "MIT",
@@ -14,8 +14,8 @@
   },
   "devDependencies": {
     "seneca": "1.1.0",
-    "seneca-stats": "mcdonnelldean/seneca-stats",
-    "seneca-toolbag-stats": "mcdonnelldean/seneca-toolbag-stats",
+    "vidi-metrics": "vidi-insights/vidi-metrics",
+    "vidi-toolbag-metrics": "vidi-insights/vidi-toolbag-metrics",
     "toolbag": "0.7.0"
   }
 }
