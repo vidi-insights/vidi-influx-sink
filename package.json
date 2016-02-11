@@ -1,6 +1,6 @@
 {
   "name": "vidi-influx-sink",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "An InfluxDb sink for Vidi: Metrics",
   "main": "influx-sink.js",
   "scripts": {
@@ -8,14 +8,18 @@
   },
   "author": "Dean McDonnell (http://mcdonnelldean.me)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vidi-insights/vidi-influx-sink.git"
+  },
   "dependencies": {
     "influx": "4.1.0",
     "lodash": "4.2.1"
   },
   "devDependencies": {
     "seneca": "1.1.0",
-    "vidi-metrics": "vidi-insights/vidi-metrics#vnext",
-    "vidi-toolbag-metrics": "vidi-insights/vidi-toolbag-metrics#vnext",
+    "vidi-metrics": "0.1.0",
+    "vidi-toolbag-metrics": "0.1.0",
     "toolbag": "0.7.0"
   }
 }
