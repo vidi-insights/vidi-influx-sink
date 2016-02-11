@@ -1,10 +1,10 @@
 {
-  "name": "vidi-influx-store",
+  "name": "vidi-influx-sink",
   "version": "0.0.1",
-  "description": "Store you seneca-stats data in InfluxDb",
-  "main": "influx-store.js",
+  "description": "An InfluxDb sink for Vidi: Metrics",
+  "main": "influx-sink.js",
   "scripts": {
-    "demo": "node -r toolbag test/demo.js"
+    "demo": "node -r toolbag srv/demo.js"
   },
   "author": "Dean McDonnell (http://mcdonnelldean.me)",
   "license": "MIT",
@@ -14,8 +14,8 @@
   },
   "devDependencies": {
     "seneca": "1.1.0",
-    "vidi-metrics": "vidi-insights/vidi-metrics",
-    "vidi-toolbag-metrics": "vidi-insights/vidi-toolbag-metrics",
+    "vidi-metrics": "vidi-insights/vidi-metrics#vnext",
+    "vidi-toolbag-metrics": "vidi-insights/vidi-toolbag-metrics#vnext",
     "toolbag": "0.7.0"
   }
 }
