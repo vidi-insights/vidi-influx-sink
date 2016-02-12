@@ -19,7 +19,7 @@
   "devDependencies": {
     "seneca": "1.1.0",
     "vidi-metrics": "0.1.0",
-    "vidi-toolbag-metrics": "0.1.0",
+    "vidi-toolbag-metrics": "0.2.0",
     "toolbag": "0.7.0"
   }
 }
