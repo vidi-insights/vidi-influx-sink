@@ -10,9 +10,8 @@ var locals = {
   role: 'metrics',
   enabled: true,
   batch: {
-    count: 0,
-    max: 50,
-    timeout: 1000,
+    max: 5,
+    timeout: 500,
   },
   influx: {
     host: 'localhost',
@@ -33,6 +32,7 @@ module.exports = function (options) {
   locals.client = influx(locals.influx)
 
   locals.batch.list = {}
+  locals.batch.count = 0
   locals.batch.stream = through.obj(on_write)
   locals.batch.stream.on('error', on_stream_err)
   locals.batch.next = Date.now() + locals.batch.timeout
@@ -69,6 +69,7 @@ function enable_disable (msg, done) {
   done()
 }
 
+// Called each time the stream is written to
 function on_write (metric, enc, done) {
   var name = metric.name
   var values = metric.values
