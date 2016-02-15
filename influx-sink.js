@@ -40,7 +40,6 @@ module.exports = function (options) {
   seneca.add({role: locals.role, hook: 'sink'}, sink)
   seneca.add({role: locals.role, enabled: '*'}, enable_disable)
 
-  locals.log.info('started')
   locals.log.info(`batch size: ${locals.batch.max}`)
   locals.log.info(`batch timeout: ${locals.batch.timeout}`)
 

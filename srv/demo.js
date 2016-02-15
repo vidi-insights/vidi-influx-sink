@@ -5,8 +5,8 @@ const Through = require('through2').obj
 
 const Config = {
   influx_sink: {influx: { host: '192.168.99.100'}},
-  metrics: {collector: {enabled: enabled}},
-  bole: {level: 'debug',stream: process.stdout}
+  metrics: {collector: {enabled: true}},
+  bole: {level: 'info', stream: process.stdout}
 }
 
 Bole.output(Config.bole)
