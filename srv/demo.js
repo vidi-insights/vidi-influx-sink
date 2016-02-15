@@ -1,12 +1,30 @@
 'strict'
 
-const config = {
-  influx_sink: {influx: {host: '192.168.99.100'}},
-  metrics: {collector: {enabled: true}}
+const Bole = require('bole')
+const Through = require('through2').obj
+
+const Config = {
+  influx_sink: {
+    influx: {
+      host: '192.168.99.100'
+    }
+  },
+  metrics: {
+    collector: {
+      enabled: true
+    }
+  },
+  bole: {
+    level: 'debug',
+    stream: process.stdout
+  }
 }
 
-require('seneca')()
-  .use('vidi-metrics', config.metrics)
+
+
+Bole.output(Config.bole)
+require('seneca')({log: 'silent'})
+  .use('vidi-metrics', Config.metrics)
   .use('vidi-toolbag-metrics')
-  .use('..', config.influx_sink)
+  .use(require('..'), Config.influx_sink)
   .listen()
