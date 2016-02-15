@@ -48,6 +48,15 @@ plugins that can be dropped in to add more functionality.
   // The role that is used when adding the sink
   role: 'metrics',
 
+  // Batch save settings
+  batch: {
+    // Max per batch before write
+    max: 5,
+
+    // Force write timeout
+    timeout: 500,
+  },
+
   // The plugin will disable on InfluxDb Error
   enabled: true,
 
